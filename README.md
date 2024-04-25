@@ -17,14 +17,14 @@
 
 ## Sobre o projeto
 
-O projeto cria aplicações conteinerizadas contendo implementações de Apache Spark+Delta Lake, Apache Spark+Apache Iceberg, bucket via Min.IO, uma base de dados contento informações sobre mudanças climáticas na terra com registros de temperatura e notebooks com manipulações de cada ambiente.
+O projeto visa estudar a forma de implementação e uso do Delta Lake e do Apache Iceberg através do Apache Spark, junto também de um bucket criado via Min.IO. A base de dados utilizada para estudo contém informações sobre mudanças climáticas na terra com registros da temperatura média de cada cidade. Cada ambiente possui um Jupyter Notebook próprio demonstrando o funcionamento de cada ambiente.
 
 ## Referência
 
 ** A base de dados utilizada neste projeto pode ser encontrada neste <a href="https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data">link</a>. Não houveram modificações no conjunto de dados, apenas conversão do formato .CSV para PARQUET devido limitações de armazenamento do GitHub.
 <br />
 
-** Os arquivos do tipo `Dockerfile` e `docker-compose.yml` são de origem do guia de uso encontrado na documentação do (<a href="https://iceberg.apache.org/spark-quickstart/#spark-and-iceberg-quickstart">Apache Iceberg</a>). Para a construção e execução deste projeto, foram necessárias modificações nos arquivos base que podem ser encontrados <a href="https://github.com/tabular-io/docker-spark-iceberg">aqui</a>. A modificação realizada não é para uso comercial. Todos os direitos de desenvolvimento pertencem à <a href="https://tabular.io/">Tabular</a>.
+** Os arquivos do tipo `Dockerfile` e `docker-compose.yml` são de origem do guia de uso encontrado na documentação do <a href="https://iceberg.apache.org/spark-quickstart/#spark-and-iceberg-quickstart">Apache Iceberg</a>. Para a construção e execução deste projeto, foram necessárias modificações nos arquivos base que podem ser encontrados <a href="https://github.com/tabular-io/docker-spark-iceberg">aqui</a>. A modificação realizada não é para uso comercial. Todos os direitos de desenvolvimento pertencem à <a href="https://tabular.io/">Tabular</a>.
 
 ## Construído com
 
@@ -42,6 +42,7 @@ Nesta seção você encontrará os passos para instalar e executar o projeto na 
 ## Pré-requisitos
 
 * <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a>
+* No mínimo 4GB RAM
 
 ## Instalação
 
@@ -75,7 +76,8 @@ Nesta seção você encontrará os passos para instalar e executar o projeto na 
   </tr>
 </table>
 
-## Análises e Resultados
-
-
+## Demonstrações
+** <a href="https://github.com/guilherme-savio/icelake/blob/main/iceberg/notebooks/iceberg.ipynb">Apache Iceberg</a>
+<br />
+** <a href="https://github.com/guilherme-savio/icelake/blob/main/deltalake/notebooks/deltalake.ipynb">Delta Lake</a>
 
