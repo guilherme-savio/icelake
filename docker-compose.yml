@@ -10,9 +10,6 @@ services:
     depends_on:
       - rest
       - minio
-    volumes:
-      - ./warehouse:/home/iceberg/warehouse
-      - ./notebooks:/home/iceberg/notebooks/notebooks
     environment:
       - AWS_ACCESS_KEY_ID=admin
       - AWS_SECRET_ACCESS_KEY=password
@@ -22,6 +19,13 @@ services:
       - 8080:8080
       - 10000:10000
       - 10001:10001
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 2G
+  
   rest:
     image: tabulario/iceberg-rest
     container_name: iceberg-rest
@@ -36,7 +40,8 @@ services:
       - CATALOG_WAREHOUSE=s3://warehouse/
       - CATALOG_IO__IMPL=org.apache.iceberg.aws.s3.S3FileIO
       - CATALOG_S3_ENDPOINT=http://minio:9000
-  spark-deltalke:
+  
+  spark-deltalake:
     image: guilhermes027/icelake-deltalake
     container_name: spark-deltalake
     build: ./deltalake
@@ -50,7 +55,14 @@ services:
       - AWS_REGION=us-east-1
     ports:
       - 8881:8881
-      - 8080:8080
+      - 4040:4040
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 2G
+  
   minio:
     image: minio/minio
     container_name: minio
@@ -69,6 +81,7 @@ services:
       - 9001:9001
       - 9000:9000
     command: ["server", "/data", "--console-address", ":9001"]
+  
   mc:
     depends_on:
       - minio
