@@ -42,13 +42,13 @@ Nesta seção você encontrará os passos para instalar e executar o projeto na 
 ## Pré-requisitos
 
 * <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a>
-* No mínimo 4GB RAM
+* No mínimo 4GB RAM dedicados ao Docker Desktop
 
 ## Instalação
 
 1. Clone o repositório:
    ```sh
-   git clone https://github.com/higorgoulart/bicho.bet.git
+   git clone https://github.com/guilherme-savio/icelake.git
    ```
 2. Com o Docker Desktop instalado, garanta que ele esteja em execução para o funcionamento correto do docker-cli.
 
